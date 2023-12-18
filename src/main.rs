@@ -24,7 +24,7 @@ async fn main() -> anyhow::Result<()> {
 
     let assets_path = std::env::current_dir().unwrap();
     let router = Router::new()
-        .route("/", get(hello))
+        .route("/", get(index))
         .route("/contact.html", get(contact))
         .route("/projects.html", get(projects))
         .nest_service(
@@ -55,7 +55,7 @@ async fn main() -> anyhow::Result<()> {
     Ok(())
 }
 
-async fn hello() -> impl IntoResponse {
+async fn index() -> impl IntoResponse {
     let template = HelloTemplate {};
     HtmlTemplate(template)
 }
