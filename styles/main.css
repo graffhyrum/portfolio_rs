@@ -1,74 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin: 0;
+    padding: 0.5%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     background-image: url("../assets/green_bg.jpg");
 }
 
-header {
-    position: fixed;
+header, footer {
     border: black solid 1px;
-    top: 0;
     width: 100%;
-    height: 15vh;
     display: flex;
-    justify-content: space-between;
+    height: fit-content;
     align-items: center;
-}
-
-main {
-    flex-grow: 1;
-    overflow-y: auto;
-}
-
-footer {
-    flex-shrink: 0;
-}
-
-nav ul li, footer ul li {
-    display: inline-block;
-    margin-right: 20px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.top-skills {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    backdrop-filter: blur(20px);
+    padding: 0.5%;
 }
 
 header {
-    position: fixed;
-    border: black solid 1px;
-    top: 0;
-    width: 100%;
-    height: fit-content;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-main {
-    position: absolute;
-    top: 15vh;
-    bottom: 15vh;
-    overflow-y: auto;
-    width: 100%;
 }
 
 footer {
-    position: fixed;
-    border: black solid 1px;
-    bottom: 0;
-    width: 100%;
-    height: fit-content;
-    display: flex;
     justify-content: end;
-    align-items: center;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
 }
 
 nav ul li, footer ul li {
@@ -76,16 +41,16 @@ nav ul li, footer ul li {
     margin-right: 20px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
-    padding: 10px;
-}
-
-body {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    background-image: url("../assets/green_bg.jpg");
+    padding: 7px;
 }
 
 .top-skills {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.top-skills li {
+    flex: auto;
+    list-style-position: inside;
 }
