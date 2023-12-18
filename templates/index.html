@@ -1,15 +1,30 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
-{% block header %}{% endblock %}
 {% block content %}
 <main>
   <section>
     <h2>About</h2>
     <p>
-      Greetings, weary traveler! I am a software craftsman driven by a blend of test automation proficiency, a
-      background in linguistics, gaming, and philosophy, and a steadfast commitment to harmonizing human
-      interaction with technology. My journey thus far has been characterized by a focus on test automation,
-      process documentation, and getting information from where it is to where it needs to be.
+      I am a seasoned SDET who most recently worked at OvationCXM, a customer experience management platform, with
+      over
+      two years of experience in creating and maintaining automated test suites, frameworks, and integrations
+      using
+      Playwright, TypeScript, and various tools. I have a strong network security, linguistics, gaming, and
+      philosophy
+      background, and have held CompTIA A+, Net+, and QIR certifications.
+    </p>
+    <p>
+      My passion is to align human interaction with technology by ensuring the quality, reliability, and
+      accessibility of
+      software products. I have successfully migrated the end-to-end tests from Cypress to Playwright, reducing
+      runtime by
+      85%, and incorporated accessibility standards into our design and testing via WCAG, Axe/Arc, and project
+      A11y. I
+      have also contributed to the test automation community by sharing my expertise and best practices through
+      blogs,
+      podcasts, and webinars. I am always looking for new challenges and opportunities to learn and grow as a
+      software
+      craftsman.
     </p>
     <p>
       Developer Proficiency:
@@ -34,8 +49,8 @@
     </p>
     <p>
       Craftsmanship Adherent:
-      A proud supporter of the Software Craftsmanship Manifesto, I pursue excellence in the nuanced art of
-      software development with a measured and deliberate approach.
+      A proud supporter of the Software Craftsmanship Manifesto, I pursue quality and professionalism in all my
+      work.
     </p>
     <p>
       I am actively seeking opportunities that align with my passion for software design, development, and QA
@@ -44,7 +59,7 @@
   </section>
   <section>
     <h2>Top Skills</h2>
-    <ul>
+    <ul role="list" class="top-skills">
       <li>Typescript</li>
       <li>Playwright</li>
       <li>Test Automation</li>
@@ -59,12 +74,9 @@
   </section>
   <section>
     <h2>Socials</h2>
-    <ul class="list-group fs-5 me-5">
+    <ul role="list">
       Todo =P
     </ul>
   </section>
 </main>
-{% endblock %}
-{% block footer %}
-<div>Todo</div>
 {% endblock %}
