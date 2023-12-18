@@ -2,6 +2,9 @@
 name = "portfolio_rs"
 version = "0.2.0"
 edition = "2021"
+description = "Portfolio website written in Rust. Uses Axum, Askama, Tower, and htmx."
+authors = ["Joshua Pendragon <pendragon.josh@gmail.com>"]
+repository = "https://github.com/graffhyrum/portfolio_rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
