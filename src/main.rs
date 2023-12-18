@@ -30,7 +30,9 @@ async fn main() -> anyhow::Result<()> {
         .nest_service(
             "/assets",
             ServeDir::new(format!("{}/assets", assets_path.to_str().unwrap())),
-        );
+        )
+        .nest_service("/styles",
+        ServeDir::new(format!("{}/styles",assets_path.to_str().unwrap())));
     let port = 8000_u16;
     let addr = std::net::SocketAddr::from(([127, 0, 0, 1], port));
 
