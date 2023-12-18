@@ -46,7 +46,7 @@ header {
     border: black solid 1px;
     top: 0;
     width: 100%;
-    height: 15vh;
+    height: fit-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,7 +65,10 @@ footer {
     border: black solid 1px;
     bottom: 0;
     width: 100%;
-    height: 15vh;
+    height: fit-content;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 
 nav ul li, footer ul li {
