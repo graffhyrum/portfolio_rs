@@ -19,7 +19,7 @@ async fn main() -> anyhow::Result<()> {
 
     info!("Initializing Router");
     let addr = address::get_address();
-    let router = router::build_router();
+    let router = router::build_router()?;
     info!("router initialized, now listening on http://{}", addr);
 
 
