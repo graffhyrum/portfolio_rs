@@ -1,4 +1,5 @@
 mod router;
+mod address;
 
 use dotenv::dotenv;
 use anyhow::Context;
@@ -17,7 +18,7 @@ async fn main() -> anyhow::Result<()> {
         .init();
 
     info!("Initializing Router");
-    let addr = get_address();
+    let addr = address::get_address();
     let router = router::build_router();
     info!("router initialized, now listening on http://{}", addr);
 
@@ -28,29 +29,4 @@ async fn main() -> anyhow::Result<()> {
         .context("error while starting server")?;
 
     Ok(())
-}
-
-fn get_port() -> u16 {
-    match dotenv::var("HTTPD_PORT") {
-        Ok(port) => port.parse().unwrap_or(8080),
-        Err(_) => {
-            info!("PORT not set, defaulting to 8080");
-            8080
-        }
-    }
-}
-
-fn get_address() -> std::net::SocketAddr {
-    let port = get_port();
-    match dotenv::var("HTTPD_ADDRESS") {
-        Ok(address) => {
-            info!("ADDRESS set to {}", address);
-            address.parse().unwrap_or(([127, 0, 0, 1], port).into())
-        }
-        Err(_) => {
-            let default_address = [127, 0, 0, 1];
-            info!("ADDRESS not set, defaulting to {:?}", default_address);
-            ([127, 0, 0, 1], port).into()
-        }
-    }
 }
