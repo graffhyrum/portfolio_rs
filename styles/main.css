@@ -26,7 +26,8 @@ header {
     justify-content: space-between;
 }
 
-footer {
+
+footer{
     justify-content: end;
 }
 
@@ -53,4 +54,10 @@ nav ul li, footer ul li {
 .top-skills li {
     flex: auto;
     list-style-position: inside;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #333;
 }

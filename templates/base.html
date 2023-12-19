@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" lang="en">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
-    <link rel="icon" sizes="32x32" href="../favicon_io/favicon-32x32.png">
-    <link rel="icon" sizes="16x16" href="../favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="../favicon_io/site.webmanifest">
+  <meta charset="UTF-8" lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendragon Portfolio</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+  <link rel="icon" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+  <link rel="icon" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="../favicon_io/site.webmanifest">
 </head>
 <body>
 <header>
-    <h1>Pendragon Portfolio</h1>
-    <nav>
-        <ul role="directory">
-            <li><a href="/">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    {% block header %}{% endblock %}
+  <h1>{% block heading %}{% endblock %}</h1>
+  <nav>
+    <ul role="directory">
+      <li><a href="/">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="bookshelf.html">Bookshelf</a></li>
+    </ul>
+  </nav>
+  {% block header %}{% endblock %}
 </header>
 <main>
-    {% block content %}{% endblock %}
+  {% block content %}{% endblock %}
 </main>
 <footer>
-    <h2>Socials</h2>
-    <ul role="list">
-        <li><a href="https://www.linkedin.com/in/pendragonjoshuag/">LinkedIn</a></li>
-        <li><a href="https://github.com/graffhyrum">GitHub</a></li>
-    </ul>
-    {% block footer %}{% endblock %}
+  <h2>Links</h2>
+  <ul role="list">
+    <li><a target="_blank" href="https://www.linkedin.com/in/pendragonjoshuag/">LinkedIn</a></li>
+    <li><a target="_blank" href="https://github.com/graffhyrum">GitHub</a></li>
+    <li><a target="_blank" href="mailto:pendragon.josh@gmail.com">Contact Me</a></li>
+  </ul>
+  {% block footer %}{% endblock %}
+  <p> &copy 2023. Version {{ version }} All rights reserved.</p>
 </footer>
 <script src="../scripts/htmx.min.js"></script>
 </body>
