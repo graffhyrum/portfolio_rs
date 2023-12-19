@@ -6,20 +6,16 @@
     This is a collection of tools, articles, and other resources that I have found useful.
   </p>
   <ul role="list">
+    {% for entry in entries %}
     <li>
-      <a href="https://grugbrain.dev/">The Grug Brained Developer</a>
+      <a target="_blank" href="{{ entry.href }}">{{ entry.title }}</a>
       <br>
       <p>
-        A layman's guide to thinking like the self-aware smol brained.
+        {{ entry.description }}
       </p>
     </li>
-    <li>
-      <a href="https://htmx.org/essays/locality-of-behaviour/">HTMX on Locality of Behavior</a>
-      <br>
-      <p>
-        An article on the tradeoffs of Separation of Concerns and Locality of Behavior.
-      </p>
-    </li>
+    {% endfor %}
   </ul>
+
 </section>
 {% endblock %}
