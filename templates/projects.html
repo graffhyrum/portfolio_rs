@@ -47,7 +47,7 @@
         want to make all properties of an object (including nested properties) optional.
       </p>
       <pre>
-      <code>
+      <code class="language-typescript">
 /**
  * A custom utility type to allow an object to be only one Type from the provided
  * Type.
@@ -73,7 +73,7 @@ type ValueOf&lt;Obj extends object&gt; = Obj[keyof Obj];
         achieved using TypeScript's conditional and mapped types.
       </p>
       <pre>
-      <code>
+      <code class="language-typescript">
 /**
  * A custom utility type to allow an object to be only one Type from the provided
  * Type.
@@ -98,7 +98,7 @@ type ValueOf&lt;Obj extends object&gt; = Obj[keyof Obj];
         A utility for working with objects in a type-safe manner. It defines a type Entries and a function getEntries.
       </p>
       <pre>
-      <code>
+      <code class="language-typescript">
 export type Entries&ltT&gt = {
   [K in keyof T]-?: [K, T[K]];
 }[keyof T][];
@@ -130,7 +130,7 @@ const entries2 = Object.entries(exampleObj);
 A "Branded" type is a type that is a subtype of the original type, but has a unique literal value in a common field (the brand). This allows us to define types that are more specific than the original type, but are still compatible with it.
       </p>
       <pre>
-      <code>
+      <code class="language-typescript">
 export type EmailAddress = string & {__brand: 'emailAddress'};
 
 /**

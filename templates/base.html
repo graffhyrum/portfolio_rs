@@ -4,11 +4,14 @@
   <meta charset="UTF-8" lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pendragon Portfolio</title>
-  <link rel="stylesheet" href="../styles/main.css">
+  <link href="../styles/main.css" rel="stylesheet">
+  <link href="../styles/prism.css" rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
   <link rel="icon" sizes="32x32" href="../favicon_io/favicon-32x32.png">
   <link rel="icon" sizes="16x16" href="../favicon_io/favicon-16x16.png">
   <link rel="manifest" href="../favicon_io/site.webmanifest">
+  <script src="../scripts/prism.js"></script>
+  <script src="../scripts/htmx.min.js"></script>
 </head>
 <body>
 <header>
@@ -35,6 +38,5 @@
   {% block footer %}{% endblock %}
   <p> &copy 2023. Version {{ version }} All rights reserved.</p>
 </footer>
-<script src="../scripts/htmx.min.js"></script>
 </body>
 </html>

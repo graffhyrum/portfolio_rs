@@ -37,6 +37,7 @@ cargo run
 - [Askama](https://github.com/djc/askama)
 - [Tower](https://github.com/tower-rs/tower)
 - [htmx](https://htmx.org/)
+- [Prism](https://prismjs.com/)
 
 ## Authors
 
