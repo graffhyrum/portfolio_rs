@@ -3,7 +3,7 @@ mod version;
 
 use axum::{Router, routing::get};
 use tower_http::services::ServeDir;
-use crate::router::handlers::{bookshelf::bookshelf, index::index, project::projects};
+use crate::router::handlers::{bookshelf::bookshelf, index::index, project::projects, testimonials::testimonial};
 use anyhow::Result;
 
 pub fn build_router() -> Result<Router> {
@@ -16,6 +16,7 @@ pub fn build_router() -> Result<Router> {
         .route("/", get(index))
         .route("/projects.html", get(projects))
         .route("/bookshelf.html", get(bookshelf))
+        .route("/testimonials.html", get(testimonial))
         .nest_service("/assets", ServeDir::new(format!("{}/assets", assets_path)))
         .nest_service("/styles", ServeDir::new(format!("{}/styles", assets_path)))
         .nest_service("/scripts", ServeDir::new(format!("{}/scripts", assets_path)))

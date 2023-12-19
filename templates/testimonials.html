@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block heading %}Testimonials{% endblock %}
+{% block content %}
+<section>
+  <p>
+    This is a collection of testimonials from people that I have worked with.
+  </p>
+  <ul role="list">
+    {% for entry in entries %}
+    <li>
+      <a target="_blank" href="{{ entry.href }}">{{ entry.title }}</a>
+      <br>
+      <p>
+        {{ entry.description }}
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
+
+</section>
+{% endblock %}
