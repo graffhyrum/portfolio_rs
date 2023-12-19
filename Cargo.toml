@@ -19,3 +19,5 @@ tracing = "0.1.40"
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
 serde = { version = "1.0.193", features = ["derive"] }
 toml = "0.8.8"
+dotenv = "0.15.0"
+
