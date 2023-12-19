@@ -16,12 +16,12 @@ pub fn get_address() -> std::net::SocketAddr {
     match dotenv::var("HTTPD_ADDRESS") {
         Ok(address) => {
             info!("ADDRESS set to {}", address);
-            address.parse().unwrap_or(([127, 0, 0, 1], port).into())
+            address.parse().unwrap_or(([0, 0, 0, 0], port).into())
         }
         Err(_) => {
-            let default_address = [127, 0, 0, 1];
+            let default_address = [0, 0, 0, 0];
             info!("ADDRESS not set, defaulting to {:?}", default_address);
-            ([127, 0, 0, 1], port).into()
+            ([0, 0, 0, 0], port).into()
         }
     }
 }
