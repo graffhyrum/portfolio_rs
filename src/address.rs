@@ -1,11 +1,12 @@
 use tracing::info;
 
 fn get_port() -> u16 {
+    let default_port = 8000;
     match dotenv::var("HTTPD_PORT") {
-        Ok(port) => port.parse().unwrap_or(8080),
+        Ok(port) => port.parse().unwrap_or(default_port),
         Err(_) => {
-            info!("PORT not set, defaulting to 8080");
-            8080
+            info!("PORT not set, defaulting to {}", default_port);
+            default_port
         }
     }
 }

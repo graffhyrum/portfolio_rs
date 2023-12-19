@@ -5,8 +5,7 @@ use std::io::Read;
 use axum::{Router, routing::get};
 use tower_http::services::ServeDir;
 use toml::Value;
-use handlers::project;
-use crate::router::handlers::{bookshelf::bookshelf, index::index};
+use crate::router::handlers::{bookshelf::bookshelf, index::index, project::projects};
 
 pub fn build_router() -> Router {
     let assets_path_buff = std::env::current_dir().unwrap();
@@ -14,7 +13,7 @@ pub fn build_router() -> Router {
 
     Router::new()
         .route("/", get(index))
-        .route("/projects.html", get(project::projects))
+        .route("/projects.html", get(projects))
         .route("/bookshelf.html", get(bookshelf))
         .nest_service("/assets", ServeDir::new(format!("{}/assets", assets_path)))
         .nest_service("/styles", ServeDir::new(format!("{}/styles", assets_path)))
