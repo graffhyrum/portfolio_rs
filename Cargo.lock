@@ -46,6 +46,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "askama_axum"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a41603f7cdbf5ac4af60760f17253eb6adf6ec5b6f14a7ed830cf687d375f163"
+dependencies = [
+ "askama",
+ "axum-core",
+ "http",
+]
+
+[[package]]
 name = "askama_derive"
 version = "0.12.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -642,10 +653,11 @@ checksum = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
 
 [[package]]
 name = "portfolio_rs"
-version = "1.0.1"
+version = "1.0.2"
 dependencies = [
  "anyhow",
  "askama",
+ "askama_axum",
  "axum",
  "dotenv",
  "serde",

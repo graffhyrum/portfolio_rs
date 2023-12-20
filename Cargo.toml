@@ -1,6 +1,6 @@
 [package]
 name = "portfolio_rs"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 description = "Portfolio website written in Rust. Uses Axum, Askama, Tower, and htmx."
 authors = ["Joshua Pendragon <pendragon.josh@gmail.com>"]
@@ -10,8 +10,9 @@ repository = "https://github.com/graffhyrum/portfolio_rs"
 
 [dependencies]
 anyhow = "1.0.75"
-askama = "0.12.1"
 axum = "0.7.2"
+askama = { version = "0.12.1", features = ["with-axum"] }
+askama_axum = "0.4.0"
 tokio = { version = "1.35.0", features = ["full"] }
 tower = "0.4.13"
 tower-http = { version = "0.5.0", features = ["fs"] }
@@ -20,4 +21,5 @@ tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
 serde = { version = "1.0.193", features = ["derive"] }
 toml = "0.8.8"
 dotenv = "0.15.0"
+
 
