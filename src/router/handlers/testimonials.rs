@@ -3,7 +3,6 @@ use axum::response::IntoResponse;
 
 pub async fn testimonial() -> impl IntoResponse {
     TestimonialTemplate {
-        version: env!("CARGO_PKG_VERSION").to_string(),
         entries: vec![
             ContentEntry {
                 title: "Mike Schwartz | COO @ OvationCXM",
@@ -54,7 +53,6 @@ Josh submitted more product enhancements to JIRA than anyone else including grea
 #[derive(Template)]
 #[template(path = "pages/testimonials.html")]
 struct TestimonialTemplate<'a> {
-    version: String,
     entries: Vec<ContentEntry<'a>>,
 }
 

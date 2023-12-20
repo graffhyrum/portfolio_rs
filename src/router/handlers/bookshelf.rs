@@ -3,7 +3,6 @@ use axum::response::IntoResponse;
 
 pub async fn bookshelf() -> impl IntoResponse {
     BookshelfTemplate {
-        version: env!("CARGO_PKG_VERSION").to_string(),
         sections: vec![
             Section {
                 title: "Disciplines",
@@ -41,7 +40,6 @@ pub async fn bookshelf() -> impl IntoResponse {
 #[derive(Template)]
 #[template(path = "pages/bookshelf.html")]
 struct BookshelfTemplate {
-    version: String,
     sections: Vec<Section>,
 }
 
@@ -51,7 +49,7 @@ struct Section {
     content: Vec<ContentEntry>,
 }
 
-struct ContentEntry{
+struct ContentEntry {
     title: &'static str,
     href: &'static str,
     description: &'static str,
