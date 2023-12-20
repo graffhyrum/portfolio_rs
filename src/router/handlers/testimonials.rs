@@ -54,7 +54,7 @@ Josh submitted more product enhancements to JIRA than anyone else including grea
 }
 
 #[derive(Template)]
-#[template(path = "testimonials.html")]
+#[template(path = "pages/testimonials/testimonials.html")]
 struct TestimonialTemplate<'a> {
     version: String,
     entries: Vec<ContentEntry<'a>>,
