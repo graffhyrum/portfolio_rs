@@ -2,6 +2,20 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: medium;
+    line-height: 1.5;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -10,17 +24,18 @@ body {
     padding: 0.5%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     /*background-image: url("../assets/green_bg.jpg");*/
-    background: #121212;
+    background: #091a0a;
     color: rgb(207, 207, 207);
     font-size: 1rem;
+
 }
 
 a:link {
-    color: rgba(92, 146, 219, 0.85);
+    color: rgba(138, 174, 216, 0.85);
 }
 
 a:visited {
-    color: rgba(169, 136, 206, 0.4);
+    color: rgba(215, 193, 244, 0.4);
 }
 
 a:hover {
@@ -45,7 +60,7 @@ header {
 }
 
 
-footer{
+footer {
     justify-content: end;
 }
 
@@ -75,6 +90,13 @@ nav ul li, footer ul li {
 .top-skills li {
     flex: auto;
     list-style-position: inside;
+    display: flex;
+    align-content: center;
+}
+
+.top-skills li * {
+    padding: .5rem;
+    align-content: center;
 }
 
 footer p {
@@ -90,3 +112,10 @@ pre {
     padding: 10px;
     margin: 0.625rem 0;
 }
+
+.headshot {
+    width: 10%;
+    height: auto;
+    border-radius: 70%;
+}
+
