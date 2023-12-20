@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block heading %}Bookshelf{% endblock %}
 {% block content %}
+{% for section in sections %}
 <section>
   <h2>
-    Disciplines
+    {{ section.title }}
   </h2>
   <p>
-    This is a collection of disciplines that I have found useful.
+    {{ section.subtitle }}
   </p>
   <ul role="list">
-    {% for entry in disciplines %}
+    {% for entry in section.content %}
     <li>
       <a target="_blank" href="{{ entry.href }}">{{ entry.title }}</a>
       <br>
@@ -20,23 +21,5 @@
     {% endfor %}
   </ul>
 </section>
-<section>
-  <h2>
-    Articles
-  </h2>
-  <p>
-    This is a collection of articles, that I have found useful.
-  </p>
-  <ul role="list">
-    {% for entry in articles %}
-    <li>
-      <a target="_blank" href="{{ entry.href }}">{{ entry.title }}</a>
-      <br>
-      <p>
-        {{ entry.description }}
-      </p>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
+{% endfor %}
 {% endblock %}
