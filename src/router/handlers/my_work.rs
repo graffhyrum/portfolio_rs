@@ -10,7 +10,7 @@ pub async fn my_work() -> impl IntoResponse {
 }
 
 #[derive(Template)]
-#[template(path = "pages/my_work/my_work.html")]
+#[template(path = "pages/my_work.html")]
 struct MyWorkTemplate {
     version: String,
 }

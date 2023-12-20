@@ -19,9 +19,9 @@ pub fn build_router() -> Result<Router> {
 
     let routes = Router::new()
         .route("/", get(index))
-        .route("/my_work/my_work.html", get(my_work))
-        .route("/bookshelf/bookshelf.html", get(bookshelf))
-        .route("/testimonials/testimonials.html", get(testimonial))
+        .route("/my_work.html", get(my_work))
+        .route("/bookshelf.html", get(bookshelf))
+        .route("/testimonials.html", get(testimonial))
         .fallback(fallback);
 
     let services = Router::new()

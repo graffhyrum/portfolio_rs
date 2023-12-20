@@ -41,7 +41,7 @@ pub async fn bookshelf() -> impl IntoResponse {
 
 //region Structs
 #[derive(Template)]
-#[template(path = "pages/bookshelf/bookshelf.html")]
+#[template(path = "pages/bookshelf.html")]
 struct BookshelfTemplate {
     version: String,
     sections: Vec<Section>,
