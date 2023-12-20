@@ -1,6 +1,6 @@
 # Handlers Module
 
-### [`index.rs`](index.rs), [`my_work.rs`](my_work), and [`bookshelf.rs`](bookshelf.rs)
+### [`index.rs`](index.rs), [`my_work.rs`](my_work.rs), and [`bookshelf.rs`](bookshelf.rs)
 
 These files contain the handlers for the index, projects, and bookshelf routes respectively. They all use the `askama`
 crate for templating and `axum` for response handling. Each file has an asynchronous
