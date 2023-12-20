@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% block heading %}Bookshelf{% endblock %}
 {% block content %}
+<details>
+  <summary>
+    Table of Contents
+  </summary>
+  <ul role="directory">
+    {% for section in sections %}
+    <li>
+      <a href="#{{ section.title }}">{{ section.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</details>
 {% for section in sections %}
 <section>
   <h2>
