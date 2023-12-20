@@ -1,6 +1,5 @@
 use askama::Template;
 use axum::response::IntoResponse;
-use crate::router::handlers::html_template::HtmlTemplate;
 
 pub async fn my_work() -> impl IntoResponse {
     let template = MyWorkTemplate {

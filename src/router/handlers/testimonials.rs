@@ -1,9 +1,8 @@
 use askama::Template;
 use axum::response::IntoResponse;
-use crate::router::handlers::html_template::HtmlTemplate;
 
 pub async fn testimonial() -> impl IntoResponse {
-    let template = TestimonialTemplate {
+    TestimonialTemplate {
         version: env!("CARGO_PKG_VERSION").to_string(),
         entries: vec![
             ContentEntry {
@@ -49,8 +48,7 @@ Josh is actively involved in our documentation efforts and is the first person t
 Josh submitted more product enhancements to JIRA than anyone else including great detail and UI examples."
             },
         ],
-    };
-    HtmlTemplate(template)
+    }
 }
 
 #[derive(Template)]

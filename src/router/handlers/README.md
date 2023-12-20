@@ -9,10 +9,3 @@ template instance (`IndexTemplate`, `ProjectsTemplate`, `BookshelfTemplate`) wit
 
 The `BookshelfTemplate` also includes a vector of `ContentEntry` instances, each representing a book with a title, a
 link (href), and a description.
-
-### [`html_template.rs`](html_template.rs)
-
-All three handler files use a shared `HtmlTemplate` struct from `html_template.rs` for their responses. The HTML templates are [located here](../../../templates).
-
-Please note that this documentation is a high-level overview and does not cover all the details. For a more in-depth
-understanding, it's recommended to read the source code directly.

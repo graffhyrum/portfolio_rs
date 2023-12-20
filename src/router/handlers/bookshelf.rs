@@ -1,9 +1,8 @@
 use askama::Template;
 use axum::response::IntoResponse;
-use crate::router::handlers::html_template::HtmlTemplate;
 
 pub async fn bookshelf() -> impl IntoResponse {
-    let template = BookshelfTemplate {
+    BookshelfTemplate {
         version: env!("CARGO_PKG_VERSION").to_string(),
         sections: vec![
             Section {
@@ -34,8 +33,7 @@ pub async fn bookshelf() -> impl IntoResponse {
                 ],
             },
         ],
-    };
-    HtmlTemplate(template)
+    }
 }
 
 
