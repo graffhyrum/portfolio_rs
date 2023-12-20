@@ -1,5 +1,4 @@
 mod handlers;
-mod version;
 
 use axum::{Router, routing::get};
 use tower_http::services::ServeDir;

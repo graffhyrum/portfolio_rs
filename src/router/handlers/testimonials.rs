@@ -1,11 +1,10 @@
 use askama::Template;
 use axum::response::IntoResponse;
-use crate::router::version::get_version;
 use crate::router::handlers::html_template::HtmlTemplate;
 
 pub async fn testimonial() -> impl IntoResponse {
     let template = TestimonialTemplate {
-        version: get_version(),
+        version: env!("CARGO_PKG_VERSION").to_string(),
         entries: vec![
             ContentEntry {
                 title: "Mike Schwartz | COO @ OvationCXM",

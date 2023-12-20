@@ -2,11 +2,14 @@
 {% block heading %}Bookshelf{% endblock %}
 {% block content %}
 <section>
+  <h2>
+    Disciplines
+  </h2>
   <p>
-    This is a collection of tools, articles, and other resources that I have found useful.
+    This is a collection of disciplines that I have found useful.
   </p>
   <ul role="list">
-    {% for entry in entries %}
+    {% for entry in disciplines %}
     <li>
       <a target="_blank" href="{{ entry.href }}">{{ entry.title }}</a>
       <br>
@@ -16,6 +19,24 @@
     </li>
     {% endfor %}
   </ul>
-
+</section>
+<section>
+  <h2>
+    Articles
+  </h2>
+  <p>
+    This is a collection of articles, that I have found useful.
+  </p>
+  <ul role="list">
+    {% for entry in articles %}
+    <li>
+      <a target="_blank" href="{{ entry.href }}">{{ entry.title }}</a>
+      <br>
+      <p>
+        {{ entry.description }}
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
 </section>
 {% endblock %}

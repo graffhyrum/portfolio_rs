@@ -1,11 +1,10 @@
 use askama::Template;
 use axum::response::IntoResponse;
-use crate::router::version::get_version;
 use crate::router::handlers::html_template::HtmlTemplate;
 
 pub async fn projects() -> impl IntoResponse {
     let template = ProjectsTemplate {
-        version: get_version(),
+        version: env!("CARGO_PKG_VERSION").to_string(),
     };
     HtmlTemplate(template)
 }
