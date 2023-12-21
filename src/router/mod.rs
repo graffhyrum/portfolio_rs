@@ -2,7 +2,12 @@ mod handlers;
 
 use axum::{Router, routing::get};
 use tower_http::services::ServeDir;
-use crate::router::handlers::{bookshelf::bookshelf, index::index, my_work::my_work, testimonials::testimonial};
+use crate::router::handlers::{
+    bookshelf::bookshelf,
+    index::index,
+    my_work::my_work,
+    testimonials::testimonial,
+    playground::playground};
 use anyhow::Result;
 use axum::http::StatusCode;
 
@@ -22,6 +27,7 @@ pub fn build_router() -> Result<Router> {
         .route("/my_work.html", get(my_work))
         .route("/bookshelf.html", get(bookshelf))
         .route("/testimonials.html", get(testimonial))
+        .route("/playground.html", get(playground))
         .fallback(fallback);
 
     let services = Router::new()
