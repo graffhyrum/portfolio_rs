@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 {% block heading %}Testimonials{% endblock %}
+{% block toc %}
+<nav>
+  <h3>
+    Table of Contents
+  </h3>
+  <ul role="directory">
+    {% for entry in entries %}
+    <li>
+      <a href="#{{ entry.title }}">{{ entry.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+{% endblock %}
 {% block content %}
 <section>
   <p>

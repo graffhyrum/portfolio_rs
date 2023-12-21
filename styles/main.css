@@ -23,7 +23,6 @@ body {
     margin: 0;
     padding: 0.5%;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /*background-image: url("../assets/green_bg.jpg");*/
     background: #091a0a;
     color: rgb(207, 207, 207);
     font-size: 1rem;
@@ -59,12 +58,61 @@ header {
     justify-content: space-between;
 }
 
+header nav {
+    width: 32%;
+}
+
 
 footer {
     justify-content: end;
 }
 
+footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+    height: fit-content;
+}
+
+header ul li, footer ul li {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1% 2% 1% 2%;
+    margin: 1% 2% 1% 2%;
+}
+
+.toc {
+    width: auto;
+    padding: 0.5%;
+    border-right: 2px solid rgb(207, 207, 207);
+}
+
+.toc nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.toc ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.toc ul li {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 12%;
+    margin: 2%;
+}
+
 main {
+    display: flex;
     flex: 1;
     overflow-y: auto;
     width: 100%;
@@ -73,13 +121,12 @@ main {
     padding: 1%;
 }
 
-nav ul li, footer ul li {
-    display: inline-block;
-    margin-right: 1.25rem;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 7px;
+
+.content {
+    width: 85%;
+    padding-left: 1%;
 }
+
 
 .top-skills {
     display: flex;

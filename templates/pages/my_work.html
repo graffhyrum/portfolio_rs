@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block heading %}Projects{% endblock %}
-{% block content %}
-<details>
-  <summary>
+{% block toc %}
+<nav>
+  <h3>
     Table of Contents
-  </summary>
+  </h3>
   <ul role="directory">
     {% for section in sections %}
     <li>
@@ -12,7 +12,9 @@
     </li>
     {% endfor %}
   </ul>
-</details>
+</nav>
+{% endblock %}
+{% block content %}
 {% for section in sections %}
 <section>
   <h2>
