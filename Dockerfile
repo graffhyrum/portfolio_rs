@@ -31,7 +31,10 @@ ARG TARGETPLATFORM
 # Install cross compilation build dependencies.
 RUN xx-apk add --no-cache musl-dev gcc
 
-COPY . .
+COPY src/ src/
+COPY templates/ templates/
+COPY Cargo.toml Cargo.toml
+COPY Cargo.lock Cargo.lock
 
 
 # Build the application.
