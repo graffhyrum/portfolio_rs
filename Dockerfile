@@ -44,9 +44,9 @@ COPY Cargo.lock Cargo.lock
 # compiled dependencies which will speed up subsequent builds.
 # Once built, copy the executable to an
 # output directory before the cache mounted /app/target is unmounted.
-RUN --mount=type=cache,target=/app/target/,id=rust-cache-${APP_NAME}-${TARGETPLATFORM} \
-    --mount=type=cache,target=/usr/local/cargo/git/db,id=db-cache \
-    --mount=type=cache,target=/usr/local/cargo/registry/,id=registry-cache \
+RUN --mount=type=cache,target=/app/target/,id=<cache-id> \
+    --mount=type=cache,target=/usr/local/cargo/git/db,id=<cache-id> \
+    --mount=type=cache,target=/usr/local/cargo/registry/,id=<cache-id> \
     <<EOF
 set -e
 xx-cargo build --locked --release --target-dir ./target
