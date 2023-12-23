@@ -39,14 +39,15 @@ RUN xx-apk add --no-cache musl-dev gcc
 # Leverage a bind mount to the src directory to avoid having to copy the
 # source code into the container. Once built, copy the executable to an
 # output directory before the cache mounted /app/target is unmounted.
-RUN --mount=type=bind,source=src,target=src \
-    --mount=type=bind,source=templates,target=templates \
-    --mount=type=bind,source=Cargo.toml,target=Cargo.toml \
-    --mount=type=bind,source=Cargo.lock,target=Cargo.lock \
-    --mount=type=cache,target=/app/target/,id=rust-cache-${APP_NAME}-${TARGETPLATFORM} \
-    --mount=type=cache,target=/usr/local/cargo/git/db,id=db-cache \
-    --mount=type=cache,target=/usr/local/cargo/registry/,id=registry-cache \
-    <<EOF
+#RUN --mount=type=bind,source=src,target=src \
+#    --mount=type=bind,source=templates,target=templates \
+#    --mount=type=bind,source=Cargo.toml,target=Cargo.toml \
+#    --mount=type=bind,source=Cargo.lock,target=Cargo.lock \
+#    --mount=type=cache,target=/app/target/,id=rust-cache-${APP_NAME}-${TARGETPLATFORM} \
+#    --mount=type=cache,target=/usr/local/cargo/git/db,id=db-cache \
+#    --mount=type=cache,target=/usr/local/cargo/registry/,id=registry-cache \
+RUN --mount=type=cache,id=<cache-id> \
+<<EOF
 set -e
 xx-cargo build --locked --release --target-dir ./target
 cp ./target/$(xx-cargo --print-target-triple)/release/$APP_NAME /bin/server
