@@ -23,7 +23,8 @@ async fn main() -> anyhow::Result<()> {
     info!("router initialized, now listening on http://{}", addr);
 
 
-    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    let listener_result = tokio::net::TcpListener::bind(addr).await;
+    let listener = listener_result.context("error while binding to address")?;
     axum::serve(listener, router)
         .await
         .context("error while starting server")?;
