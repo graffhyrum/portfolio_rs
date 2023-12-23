@@ -20,8 +20,8 @@
 **/*.jfm
 **/charts
 **/docker-compose*
-**/compose*
-**/Dockerfile*
+bak/compose.yaml
+bak/Dockerfile
 **/node_modules
 **/npm-debug.log
 **/secrets.dev.yaml
