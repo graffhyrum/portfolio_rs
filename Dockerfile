@@ -31,12 +31,6 @@ ARG TARGETPLATFORM
 # Install cross compilation build dependencies.
 RUN xx-apk add --no-cache musl-dev gcc
 
-COPY src/ src/
-COPY templates/ templates/
-COPY Cargo.toml Cargo.toml
-COPY Cargo.lock Cargo.lock
-
-
 # Build the application.
 # Leverage a cache mount to /usr/local/cargo/registry/
 # for downloaded dependencies, a cache mount to /usr/local/cargo/git/db
@@ -45,15 +39,14 @@ COPY Cargo.lock Cargo.lock
 # Leverage a bind mount to the src directory to avoid having to copy the
 # source code into the container. Once built, copy the executable to an
 # output directory before the cache mounted /app/target is unmounted.
-#RUN --mount=type=bind,source=src,target=src \
-#    --mount=type=bind,source=templates,target=templates \
-#    --mount=type=bind,source=Cargo.toml,target=Cargo.toml \
-#    --mount=type=bind,source=Cargo.lock,target=Cargo.lock \
-#    --mount=type=cache,target=/app/target/,id=rust-cache-${APP_NAME}-${TARGETPLATFORM} \
-#    --mount=type=cache,target=/usr/local/cargo/git/db,id=db-cache \
-#    --mount=type=cache,target=/usr/local/cargo/registry/,id=registry-cache \
-RUN --mount=type=cache,id=<cache-id> \
-<<EOF
+RUN --mount=type=bind,source=src,target=src \
+    --mount=type=bind,source=templates,target=templates \
+    --mount=type=bind,source=Cargo.toml,target=Cargo.toml \
+    --mount=type=bind,source=Cargo.lock,target=Cargo.lock \
+    --mount=type=cache,target=/app/target/,id=rust-cache-${APP_NAME}-${TARGETPLATFORM} \
+    --mount=type=cache,target=/usr/local/cargo/git/db \
+    --mount=type=cache,target=/usr/local/cargo/registry/ \
+    <<EOF
 set -e
 xx-cargo build --locked --release --target-dir ./target
 cp ./target/$(xx-cargo --print-target-triple)/release/$APP_NAME /bin/server
@@ -89,10 +82,10 @@ USER appuser
 COPY --from=build /bin/server /bin/
 
 # Copy styles, assets, favicon_io, and scripts
-COPY styles /styles/
-COPY assets /assets/
-COPY favicon_io /favicon_io/
-COPY scripts /scripts/
+COPY styles/ /styles/
+COPY assets/ /assets/
+COPY favicon_io/ /favicon_io/
+COPY scripts/ /scripts/
 
 # Expose the port that the application listens on.
 EXPOSE 8000
