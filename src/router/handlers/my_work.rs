@@ -15,10 +15,18 @@ pub async fn my_work() -> impl IntoResponse {
                     },
                     ContentEntry {
                         title: "Playwright JSON Summary Reporter",
-                        href: "https://github.com/playwrightsolutions/playwright-json-summary-reporter",
+                        href: "https://github.com/graffhyrum/playwright-json-summary-reporter",
                         content: "A custom reporter for Playwright that outputs a JSON summary of test results.
         I contributed to this project by adding a new feature that allows the user to specify a custom output file
         path.",
+                    },
+                    ContentEntry {
+                        title: "Playwright Project Builder",
+                        href: "https://github.com/graffhyrum/playwright-project-builder",
+                        content: "A Playwright test project config factory. It is designed to
+be a starting point for Playwright projects. By setting environment variables for
+each environment you would want to test, you can execute a setup project,
+your test suite against all enabled environments, and a teardown project. ",
                     },
                     ContentEntry {
                         title: "OvationCXM",
