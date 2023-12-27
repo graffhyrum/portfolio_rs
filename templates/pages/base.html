@@ -19,21 +19,22 @@
 </head>
 <body>
 <header>
-  <img class="headshot" src="../../assets/headshot.jpg" alt="Headshot of Joshua Pendragon">
-  <h1>{% block heading %}{% endblock %}</h1>
-  <nav>
-    <ul role="directory">
-      <li><a href="/">Home</a></li>
-      <li><a href="my_work.html">My Work</a></li>
-      <li><a href="bookshelf.html">Bookshelf</a></li>
-      <li><a href="testimonials.html">Testimonials</a></li>
-      <li><a href="playground.html">Playground</a></li>
-    </ul>
-  </nav>
+  <img class="headshot" src="../../assets/headshot_sm.jpg" alt="Headshot of Joshua Pendragon">
+  <h1>Pendragon</h1>
   {% block header %}{% endblock %}
 </header>
 <main>
   <div class="toc">
+    <h2>{% block heading %}{% endblock %}</h2>
+    <nav>
+      <ul role="directory">
+        <li><a href="/">Home</a></li>
+        <li><a href="my_work.html">My Work</a></li>
+        <li><a href="bookshelf.html">Bookshelf</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="playground.html">Playground</a></li>
+      </ul>
+    </nav>
     {% block toc %}{% endblock %}
   </div>
   <div class="content">
@@ -42,14 +43,12 @@
 </main>
 <footer>
   <p> &copy 2023. Version {{ version }} All rights reserved.</p>
-  <section>
-    <h2>Links</h2>
-    <ul role="list">
-      <li><a target="_blank" href="https://www.linkedin.com/in/pendragonjoshuag/">LinkedIn</a></li>
-      <li><a target="_blank" href="https://github.com/graffhyrum">GitHub</a></li>
-      <li><a target="_blank" href="mailto:pendragon.josh@gmail.com">Email Me</a></li>
-    </ul>
-  </section>
+  <h2>Links</h2>
+  <ul role="list">
+    <li><a target="_blank" href="https://www.linkedin.com/in/pendragonjoshuag/">LinkedIn</a></li>
+    <li><a target="_blank" href="https://github.com/graffhyrum">GitHub</a></li>
+    <li><a target="_blank" href="mailto:pendragon.josh@gmail.com">Email Me</a></li>
+  </ul>
   {% block footer %}{% endblock %}
 
 </footer>
