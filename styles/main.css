@@ -12,7 +12,7 @@ body {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: auto;
-    height: 95vh;
+    height: 100vh;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     background: #091a0a;
@@ -68,12 +68,11 @@ main {
     grid-row: 2;
     display: grid;
     grid-template-columns: 1fr 6fr;
-    justify-content: start;
     overflow-y: auto;
-    width: 100%;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     padding: 1%;
+    justify-items: stretch;
 }
 
 .content {
@@ -81,9 +80,8 @@ main {
 }
 
 .toc {
-    width: min-content;
+    /*width: max-content;*/
     padding: 2%;
-    overflow-y: auto;
 }
 
 .toc nav, .toc ul {
@@ -95,8 +93,8 @@ main {
 
 
 .content {
-    width: 85%;
     padding-left: 1%;
+    overflow-y: auto;
 }
 
 .top-skills {
