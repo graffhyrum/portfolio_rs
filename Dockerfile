@@ -34,7 +34,7 @@ RUN xx-apk add --no-cache musl-dev gcc
 # Build the application.
 # Leverage a cache mount to /usr/local/cargo/registry/
 # for downloaded dependencies, a cache mount to /usr/local/cargo/git/db
-# for git repository dependencies, and a cache mount to /app/target/ for 
+# for git repository dependencies, and a cache mount to /app/target/ for
 # compiled dependencies which will speed up subsequent builds.
 # Leverage a bind mount to the src directory to avoid having to copy the
 # source code into the container. Once built, copy the executable to an
@@ -46,12 +46,10 @@ RUN --mount=type=bind,source=src,target=src \
     --mount=type=cache,target=/app/target/,id=rust-cache-${APP_NAME}-${TARGETPLATFORM} \
     --mount=type=cache,target=/usr/local/cargo/git/db \
     --mount=type=cache,target=/usr/local/cargo/registry/ \
-    <<EOF
-set -e
-xx-cargo build --locked --release --target-dir ./target
-cp ./target/$(xx-cargo --print-target-triple)/release/$APP_NAME /bin/server
-xx-verify /bin/server
-EOF
+    sh -c 'set -e && \
+    xx-cargo build --locked --release --target-dir ./target && \
+    cp ./target/$(xx-cargo --print-target-triple)/release/$APP_NAME /bin/server && \
+    xx-verify /bin/server'
 
 ################################################################################
 # Create a new stage for running the application that contains the minimal
