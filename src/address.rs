@@ -1,12 +1,24 @@
 use tracing::info;
 
 fn get_port() -> u16 {
-    let default_port = 8000;
+    let port = 8000;
     match dotenv::var("HTTPD_PORT") {
-        Ok(port) => port.parse().unwrap_or(default_port),
+        Ok(dotenv_port) => dotenv_port
+            .parse()
+            .unwrap_or(port),
         Err(_) => {
-            info!("PORT not set, defaulting to {}", default_port);
-            default_port
+            // if not set in dotenv, check the environment
+            match std::env::var("PORT") {
+                Ok(env_port) => {
+                    info!("PORT set to {}", env_port);
+                    env_port.parse()
+                        .unwrap_or(port)
+                }
+                Err(_) => {
+                    info!("PORT not set, defaulting to {}", port);
+                    port
+                }
+            }
         }
     }
 }
