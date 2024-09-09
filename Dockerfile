@@ -4,7 +4,7 @@
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/go/dockerfile-reference/
 
-ARG RUST_VERSION=1.74.1
+ARG RUST_VERSION=1.81.0
 ARG APP_NAME=portfolio_rs
 
 ################################################################################
