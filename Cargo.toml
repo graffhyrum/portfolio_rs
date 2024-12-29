@@ -16,7 +16,7 @@ askama_axum = "0.4.0"
 tokio = { version = "1.42.0", features = ["full"] }
 tower = "0.5.1"
 tower-http = { version = "0.6.1", features = ["fs"] }
-tracing = "0.1.40"
+tracing = "0.1.41"
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
 serde = { version = "1.0.216", features = ["derive"] }
 toml = "0.8.19"
