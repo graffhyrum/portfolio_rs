@@ -1,20 +1,17 @@
 mod handlers;
 
-use axum::{Router, routing::get};
-use tower_http::services::ServeDir;
 use crate::router::handlers::{
-    bookshelf::bookshelf,
-    index::index,
-    my_work::my_work,
+    bookshelf::bookshelf, index::index, my_work::my_work, playground::playground,
     testimonials::testimonial,
-    playground::playground};
+};
 use anyhow::Result;
 use axum::http::StatusCode;
+use axum::{routing::get, Router};
+use tower_http::services::ServeDir;
 
 async fn fallback() -> (StatusCode, &'static str) {
     (StatusCode::NOT_FOUND, "Not Found")
 }
-
 
 pub fn build_router() -> Result<Router> {
     let assets_path_buff = std::env::current_dir()?;
@@ -33,13 +30,16 @@ pub fn build_router() -> Result<Router> {
     let services = Router::new()
         .nest_service("/assets", ServeDir::new(format!("{}/assets", assets_path)))
         .nest_service("/styles", ServeDir::new(format!("{}/styles", assets_path)))
-        .nest_service("/scripts", ServeDir::new(format!("{}/scripts", assets_path)))
-        .nest_service("/favicon_io", ServeDir::new(format!("{}/favicon_io", assets_path)));
+        .nest_service(
+            "/scripts",
+            ServeDir::new(format!("{}/scripts", assets_path)),
+        )
+        .nest_service(
+            "/favicon_io",
+            ServeDir::new(format!("{}/favicon_io", assets_path)),
+        );
 
-    let app = Router::new()
-        .merge(routes)
-        .merge(services);
-
+    let app = Router::new().merge(routes).merge(services);
 
     Ok(app)
 }

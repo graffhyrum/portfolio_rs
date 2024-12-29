@@ -1,12 +1,10 @@
-use axum::response::IntoResponse;
 use askama::Template;
+use axum::response::IntoResponse;
 
 pub async fn index() -> impl IntoResponse {
-    IndexTemplate {
-    }
+    IndexTemplate {}
 }
 
 #[derive(Template)]
 #[template(path = "pages/index.html")]
-struct IndexTemplate {
-}
+struct IndexTemplate {}

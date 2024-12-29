@@ -35,7 +35,6 @@ pub async fn bookshelf() -> impl IntoResponse {
     }
 }
 
-
 //region Structs
 #[derive(Template)]
 #[template(path = "pages/bookshelf.html")]
