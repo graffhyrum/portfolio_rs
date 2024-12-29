@@ -1,4 +1,4 @@
-use askama::{Template};
+use askama::Template;
 use axum::response::IntoResponse;
 
 pub async fn my_work() -> impl IntoResponse {
@@ -193,4 +193,3 @@ struct ContentEntry {
     // if you want to include HTML tags in the content.
     content: &'static str,
 }
-

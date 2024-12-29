@@ -1,8 +1,8 @@
-mod router;
 mod address;
+mod router;
 
-use dotenv::dotenv;
 use anyhow::Context;
+use dotenv::dotenv;
 use tracing::info;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
@@ -21,7 +21,6 @@ async fn main() -> anyhow::Result<()> {
     let addr = address::get_address();
     let router = router::build_router()?;
     info!("router initialized, now listening on http://{}", addr);
-
 
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum::serve(listener, router)
