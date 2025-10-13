@@ -1,8 +1,9 @@
 use askama::Template;
-use axum::response::IntoResponse;
+use axum::response::Html;
 
-pub async fn index() -> impl IntoResponse {
-    IndexTemplate {}
+pub async fn index() -> Html<String> {
+    let template = IndexTemplate {};
+    Html(template.render().expect("Failed to render index template"))
 }
 
 #[derive(Template)]

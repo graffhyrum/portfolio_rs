@@ -1,8 +1,8 @@
 use askama::Template;
-use axum::response::IntoResponse;
+use axum::response::Html;
 
-pub async fn my_work() -> impl IntoResponse {
-    MyWorkTemplate {
+pub async fn my_work() -> Html<String> {
+    let template = MyWorkTemplate {
         sections: vec![
             Section {
                 title: "Projects",
@@ -171,7 +171,8 @@ export function isEmailAddress(
                 ],
             },
         ],
-    }
+    };
+    Html(template.render().expect("Failed to render my_work template"))
 }
 
 #[derive(Template)]

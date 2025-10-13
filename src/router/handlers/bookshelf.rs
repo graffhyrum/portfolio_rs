@@ -1,8 +1,8 @@
 use askama::Template;
-use axum::response::IntoResponse;
+use axum::response::Html;
 
-pub async fn bookshelf() -> impl IntoResponse {
-    BookshelfTemplate {
+pub async fn bookshelf() -> Html<String> {
+    let template = BookshelfTemplate {
         sections: vec![
             Section {
                 title: "Disciplines",
@@ -32,7 +32,8 @@ pub async fn bookshelf() -> impl IntoResponse {
                 ],
             },
         ],
-    }
+    };
+    Html(template.render().expect("Failed to render bookshelf template"))
 }
 
 //region Structs

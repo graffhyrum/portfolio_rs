@@ -1,8 +1,8 @@
 use askama::Template;
-use axum::response::IntoResponse;
+use axum::response::Html;
 
-pub async fn testimonial() -> impl IntoResponse {
-    TestimonialTemplate {
+pub async fn testimonial() -> Html<String> {
+    let template = TestimonialTemplate {
         entries: vec![
             ContentEntry {
                 title: "Mike Schwartz | COO @ OvationCXM",
@@ -47,7 +47,8 @@ Josh is actively involved in our documentation efforts and is the first person t
 Josh submitted more product enhancements to JIRA than anyone else including great detail and UI examples."
             },
         ],
-    }
+    };
+    Html(template.render().expect("Failed to render testimonials template"))
 }
 
 #[derive(Template)]
