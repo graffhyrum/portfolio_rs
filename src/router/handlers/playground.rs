@@ -1,8 +1,9 @@
 use askama::Template;
-use axum::response::IntoResponse;
+use axum::response::Html;
 
-pub async fn playground() -> impl IntoResponse {
-    PlaygroundTemplate {}
+pub async fn playground() -> Html<String> {
+    let template = PlaygroundTemplate {};
+    Html(template.render().expect("Failed to render playground template"))
 }
 
 #[derive(Template)]
